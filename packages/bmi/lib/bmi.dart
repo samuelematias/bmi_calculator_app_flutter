@@ -1,7 +1,12 @@
 library bmi;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:intl/intl.dart';
+
+double calculateBMI(double weight, double height) {
+  return weight / (height * height);
+}
+
+String formattedBmi(double bmi) {
+  final formatter = NumberFormat('###.#');
+  return formatter.format(bmi);
 }
