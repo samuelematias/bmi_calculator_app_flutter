@@ -1,4 +1,4 @@
-name: Flutter Web
+name: Flutter - Build and Deploy on GitHub Pages (CD)
 
 on:
   push:
