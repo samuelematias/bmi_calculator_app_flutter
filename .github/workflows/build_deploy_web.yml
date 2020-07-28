@@ -1,4 +1,4 @@
-name: Flutter Web
+name: Flutter - Build and Deploy on GitHub Pages (CD)
 
 on:
   push:
@@ -16,12 +16,18 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          channel: 'beta'
+          channel: 'dev'
       - name: Enable Web
         run: flutter config --enable-web
         working-directory: ./
-      - name: Install Dependencies
-        run: flutter packages get
+      - name: Get all packages to install dependencies
+        run: bash ./flutter_packages.sh
+      # - name: Verify chanages
+      #   run: bash ./git_changes.sh
+      - name: Analyze the code
+        run: flutter analyze || exit 1
+      - name: Run all tests
+        run: bash ./tests_packages.sh
         working-directory: ./
       - name: Build Web
         run: flutter build web
