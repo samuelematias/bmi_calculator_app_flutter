@@ -1,7 +1,6 @@
 name: Flutter - Analyze the code and Run tests (CI)
 
 on:
-  # pull_request:
   push:
   branches:
     - develop
