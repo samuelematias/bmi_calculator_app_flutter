@@ -28,12 +28,12 @@ jobs:
         working-directory: ./
       - name: Deploy
         run: |
-          cd build/web
+          cd example/build/web
           git init
-          git config --global user.email hi@samuelematias.com
-          git config --global user.name samuelematias
-          git remote add origin https://${{secrets.commit_secret}}@github.com/samuelematias/bmi_calculator_app_flutter.git
+          git config user.name  "CI"
+          git config user.email "flutter-ci@github.com"
+          git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/samuelematias/bmi_calculator_app_flutter.git
           git checkout -b gh-pages
           git add .
           git commit -m "Add GitHub Pages support"
-          git push origin gh-pages -f
+          git push --force secure-origin gh-pages
