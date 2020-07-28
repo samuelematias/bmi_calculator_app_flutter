@@ -6,5 +6,6 @@ then
     printf "${GREEN}" 'Its is clean'
 else
     printf "${RED}" "Run 'bash ./flutter_packages' first because has changes in git"
+    git status
     exit 1 
 fi
