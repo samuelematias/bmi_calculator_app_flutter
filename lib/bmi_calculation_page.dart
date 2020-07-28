@@ -1,4 +1,6 @@
 import 'package:bmi/bmi.dart';
+import 'package:custom_buttons/custom_buttons.dart';
+import 'package:extensions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -26,7 +28,7 @@ class BmiCalculationPage extends HookWidget {
     final bmiController = useTextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: Text('BMI Calculator').h1(color: Colors.deepPurple),
       ),
       body: Container(
         padding: const EdgeInsets.all(16),
@@ -56,6 +58,8 @@ class BmiCalculationPage extends HookWidget {
               decoration: InputDecoration(labelText: 'BMI'),
               readOnly: true,
             ),
+            SizedBox(height: 40.0),
+            PrimaryButton(label: 'Click me', onPressed: () {})
           ],
         ),
       ),
