@@ -14,6 +14,16 @@ dependencies:
   flutter_hooks: ^0.9.0
   bmi:
     path: packages/bmi
+  custom_buttons:
+    git:
+      url: https://github.com/samuelematias/basic_flutter_packages
+      ref: master
+      path: packages/custom_buttons
+  extensions:
+    git:
+      url: https://github.com/samuelematias/basic_flutter_packages
+      ref: master
+      path: packages/extensions
 
   cupertino_icons: ^0.1.3
 
