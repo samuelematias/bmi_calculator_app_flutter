@@ -32,8 +32,8 @@ jobs:
           git init
           git config --global user.email hi@samuelematias.com
           git config --global user.name samuelematias
-          git remote add secure-origin https://${{secrets.commit_secret}}@github.com/samuelematias/bmi_calculator_app_flutter.git
+          git remote add origin https://${{secrets.commit_secret}}@github.com/samuelematias/bmi_calculator_app_flutter.git
           git checkout -b gh-pages
           git add .
           git commit -m "Add GitHub Pages support"
-          git push --force secure-origin gh-pages
+          git push origin gh-pages -f
