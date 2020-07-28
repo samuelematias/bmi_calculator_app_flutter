@@ -1,7 +1,10 @@
 name: Flutter - Analyze the code and Run tests (CI)
 
 on:
-  pull_request:
+  # pull_request:
+  push:
+  branches:
+    - develop
 
 jobs:
   build:
@@ -15,9 +18,11 @@ jobs:
           channel: 'dev'
       - name: Enable flutter web
         run: flutter config --enable-web
-      - name: Install dependencies
-        run: flutter pub get
-      - name: Analyze
-        run: flutter analyze
-      - name: Run tests
-        run: flutter test
+      - name: Get all packages to install dependencies
+        run: bash ./flutter_packages.sh
+      - name: Verify chanages
+        run: bash ./git_changes.sh
+      - name: Analyze the code
+        run: flutter analyze || exit 1
+      - name: Run all tests
+        run: bash ./tests_packages.sh

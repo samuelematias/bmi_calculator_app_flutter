@@ -20,8 +20,14 @@ jobs:
       - name: Enable Web
         run: flutter config --enable-web
         working-directory: ./
-      - name: Install Dependencies
-        run: flutter packages get
+      - name: Get all packages to install dependencies
+        run: bash ./flutter_packages.sh
+      - name: Verify chanages
+        run: bash ./git_changes.sh
+      - name: Analyze the code
+        run: flutter analyze || exit 1
+      - name: Run all tests
+        run: bash ./tests_packages.sh
         working-directory: ./
       - name: Build Web
         run: flutter build web
